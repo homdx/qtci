@@ -29,14 +29,14 @@ echo Downloading Android NDK...
 wget -c -nv https://dl.google.com/android/repository/android-ndk-${NDK_VERSION}-linux-x86_64.zip
 
 echo Extacting Android SDK...
-unzip sdk-tools-linux-4333796.zip
+unzip -q sdk-tools-linux-4333796.zip
 
 echo "Fix Malformed input or input contains unmappable characters: /usr/share/ca-certificates/mozilla/NetLock_Arany_=Class_Gold="
 rm -vf /usr/share/ca-certificates/mozilla/NetLock_Arany*
 rm -vf /usr/lib/ssl/certs/NetLock_Arany_=Class_Gold=_F*
 
 echo Installing Android NDK...
-(unzip android-ndk-${NDK_VERSION}-linux-x86_64.zip)
+(unzip -q android-ndk-${NDK_VERSION}-linux-x86_64.zip)
 
 echo Android SDK and NDK installed
 #/tools/platform-tools/adb kill-server
