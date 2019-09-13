@@ -49,4 +49,4 @@ ls -la && curl -Lo /tmp/sdk-tools.zip 'https://dl.google.com/android/repository/
    && unzip -q /tmp/sdk-tools.zip -d ${ANDROID_SDK_ROOT} \
    && rm -fv /tmp/sdk-tools.zip \
    && export PATH=${ANDROID_SDK_ROOT}:$PATH \
-   && sdkmanager --update && yes | /android-sdk-linux/tools/bin/sdkmanager --licenses
+   && yes | /android-sdk-linux/tools/bin/sdkmanager --licenses && sdkmanager --update
