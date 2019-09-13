@@ -45,7 +45,7 @@ echo Remove downloaded files
 rm  -vf /*.zip
 
 #Install SDK tools and accept licenses
-RUN ls -la && curl -Lo /tmp/sdk-tools.zip 'https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip' \
+ls -la && curl -Lo /tmp/sdk-tools.zip 'https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip' \
    && unzip -q /tmp/sdk-tools.zip -d ${ANDROID_SDK_ROOT} \
    && rm -fv /tmp/sdk-tools.zip \
    && export PATH=${ANDROID_SDK_ROOT}:$PATH \
