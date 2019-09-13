@@ -37,6 +37,7 @@ then
   if [ -n "$QT_HOME" ]
   then
      QMAKE=$QT_HOME/android_armv7/bin/qmake
+     TRANSLATIONS=$QT_HOME/android_armv7/bin/lrelease
      PATH=$QT_HOME/android_armv7/bin:$PATH
   else
      QMAKE=qmake
@@ -76,6 +77,7 @@ ANDROID_BUILD_PATH=`pwd`/android-build
 
 JSON=`ls *deployment-settings.json`
 make clean
+echo Make and update translation files && $TRANSLATIONS ${PRO} || echo no translation files
 make
 make install INSTALL_ROOT=${ANDROID_BUILD_PATH}
 

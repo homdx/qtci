@@ -22,14 +22,14 @@ NDK_VERSION=${NDK_VERSION:=r17c}
 # e.g: platform-tool,build-tools-20.0.0,android-19
 PACKAGES=$1
 
-echo Downloading Android SDK...
-wget -c -nv https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+#echo Downloading Android SDK...
+#wget -c -nv https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
 
 echo Downloading Android NDK...
 wget -c -nv https://dl.google.com/android/repository/android-ndk-${NDK_VERSION}-linux-x86_64.zip
 
-echo Extacting Android SDK...
-unzip -q sdk-tools-linux-4333796.zip
+#echo Extacting Android SDK...
+#unzip -q sdk-tools-linux-4333796.zip
 
 echo "Fix Malformed input or input contains unmappable characters: /usr/share/ca-certificates/mozilla/NetLock_Arany_=Class_Gold="
 rm -vf /usr/share/ca-certificates/mozilla/NetLock_Arany*
@@ -45,9 +45,9 @@ echo Remove downloaded files
 rm  -vf /*.zip
 
 #Install SDK tools and accept licenses
-echo SDK tool install && curl -Lo /tmp/sdk-tools.zip 'https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip' \
+RUN ls -la && curl -Lo /tmp/sdk-tools.zip 'https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip' \
    && unzip -q /tmp/sdk-tools.zip -d ${ANDROID_SDK_ROOT} \
    && rm -fv /tmp/sdk-tools.zip \
-   && export PATH=/tools/tools/bin:$PATH \
+   && export PATH=${ANDROID_SDK_ROOT}:$PATH \
    && yes | sdkmanager --licenses \
-   && sdkmanager --update
+   && sdkmanager --update && yes | /android-sdk-linux/tools/bin/sdkmanager --licenses
